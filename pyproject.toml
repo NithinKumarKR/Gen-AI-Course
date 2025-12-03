@@ -1,0 +1,16 @@
+[project]
+name = "gen-ai-course"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "ipykernel>=7.1.0",
+    "matplotlib>=3.10.7",
+    "numpy>=2.3.2",
+    "pandas>=2.3.2",
+    "scikit-learn>=1.7.2",
+    "streamlit>=1.49.1",
+    "tensorboard>=2.20.0",
+    "tensorflow>=2.20.0",
+]
