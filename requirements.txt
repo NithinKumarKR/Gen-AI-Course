@@ -13,3 +13,8 @@ unicorn
 langserve
 uvicorn
 sse_starlette
+transformers
+tiktoken 
+langchain-chroma
+sentence-transformers
+langchain_huggingface
