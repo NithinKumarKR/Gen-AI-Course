@@ -102,3 +102,10 @@ zstandard
 langchain_groq
 torch
 langgraph 
+langchain_community
+langchain_text_splitters
+pypdf
+faiss-cpu
+chromadb
+langchain_huggingface
+sentence-transformers
