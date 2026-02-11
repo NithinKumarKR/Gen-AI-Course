@@ -109,3 +109,7 @@ faiss-cpu
 chromadb
 langchain_huggingface
 sentence-transformers
+arxiv
+wikipedia
+langchainhub
+langchain_classic
