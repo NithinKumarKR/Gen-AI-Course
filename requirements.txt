@@ -108,4 +108,13 @@ pypdf
 faiss-cpu
 chromadb
 langchain_huggingface
+<<<<<<< Updated upstream
 sentence-transformers
+=======
+sentence-transformers
+arxiv
+wikipedia
+langchainhub
+langchain_classic
+ddgs
+>>>>>>> Stashed changes
