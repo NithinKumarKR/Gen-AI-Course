@@ -4,12 +4,18 @@ from langchain_community.utilities import SQLDatabase
 from langchain_community.agent_toolkits import SQLDatabaseToolkit, create_sql_agent
 from langchain_groq import ChatGroq
 from langchain_community.callbacks.streamlit import StreamlitCallbackHandler
+from langchain_community.chat_models import ChatHuggingFace
+from langchain_huggingface import HuggingFaceEndpoint, ChatHuggingFace
 
 
 st.set_page_config(page_title="SQL ChatBot", page_icon="🤖")
 st.title("LangChain: Chat with SQL DB")
 
 # ---------------- DB SETTINGS ----------------
+user = "hr_user"
+password = "hr123" 
+host = "localhost" 
+database = "hr"
 
 radio_opt = ["Use Local SQLite DB", "Use MySQL DB"]
 select_opt = st.sidebar.radio("Choose the DB", radio_opt)
@@ -26,7 +32,10 @@ if select_opt == "Use MySQL DB":
     st.success("✅ MySQL database connected!")
 
 else:
-    db = SQLDatabase.from_uri("sqlite:///local.db")
+    #db = SQLDatabase.from_uri("sqlite:///local.db")
+    db = SQLDatabase.from_uri(
+        f"mysql+pymysql://{user}:{password}@{host}/{database}"
+    )
     st.success("✅ Local SQLite database connected!")
 
 # Show schema (helps agent)
@@ -40,12 +49,14 @@ with st.sidebar:
 
     LANGCHAIN_API_KEY = st.text_input("LANGCHAIN_API_KEY", type="password")
     GROQ_API_KEY = st.text_input("GROQ_API_KEY", type="password")
+    #HF_API_KEY = st.text_input("HF_API_KEY", type="password")
 
     temperature = st.slider("Temperature", 0.0, 1.0, 0.7, 0.1)
     max_token = st.slider("Max Tokens", 1, 2048, 512)
     model_name = st.selectbox(
         "Model Name",
         ["llama-3.1-8b-instant", "llama-3.3-70b-versatile"]
+        #["mistralai/Mistral-7B-Instruct-v0.1"]
     )
 
 # ---------------- ENV ----------------
@@ -57,6 +68,7 @@ os.environ["GROQ_API_KEY"] = GROQ_API_KEY or ""
 
 # ---------------- LLM ----------------
 
+
 model = ChatGroq(
     model_name=model_name,
     temperature=temperature,
@@ -64,6 +76,9 @@ model = ChatGroq(
     api_key=GROQ_API_KEY,
     streaming=True,
 )
+
+
+
 
 st.success("🤖 Model loaded successfully!")
 

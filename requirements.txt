@@ -116,3 +116,4 @@ langchainhub
 langchain_classic
 ddgs
 pymysql
+langchain_google_genai 
