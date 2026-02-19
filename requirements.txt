@@ -108,13 +108,12 @@ pypdf
 faiss-cpu
 chromadb
 langchain_huggingface
-<<<<<<< Updated upstream
-sentence-transformers
-=======
+pymysql
 sentence-transformers
 arxiv
 wikipedia
 langchainhub
 langchain_classic
 ddgs
->>>>>>> Stashed changes
+pymysql
+langchain_google_genai 

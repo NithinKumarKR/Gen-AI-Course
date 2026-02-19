@@ -45,6 +45,7 @@ os.environ["LANGCHAIN_TRACING_V2"] = "true"
 os.environ["LANGCHAIN_PROJECT"] = "PDF ChatBot"
 os.environ["GROQ_API_KEY"] = GROQ_API_KEY
 os.environ["HF_TOKEN"] = HF_TOKEN
+
 st.title("📄 Location PDF Chat History")
 
 if "messages" not in st.session_state:
